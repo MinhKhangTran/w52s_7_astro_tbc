@@ -1,0 +1,26 @@
+/* colors */
+.bg-white {
+  background-color: hsl(var(--white));
+}
+.bg-secondary {
+  background-color: hsl(var(--secondary));
+}
+.bg-primary {
+  background-color: hsl(var(--primary));
+}
+
+.text-white {
+  color: hsl(var(--white));
+}
+.text-blue-gray {
+  color: hsl(var(--blue-gray));
+}
+.text-gray-blue {
+  color: hsl(var(--gray-blue));
+}
+.text-dark-cyan {
+  color: hsl(var(--dark-cyan));
+}
+.text-dark {
+  color: hsl(var(--dark));
+}

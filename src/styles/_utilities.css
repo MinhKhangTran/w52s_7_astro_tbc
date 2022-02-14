@@ -1,0 +1,46 @@
+/* general */
+.d-flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.d-grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.d-block {
+  display: block;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+/* * + * === *:not(:first-child) with where higher specificity  */
+
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.flow-space--small {
+  --flow-space: 0.75rem;
+}
+
+.container {
+  margin-inline: auto;
+  max-width: 85rem;
+  width: 90%;
+}

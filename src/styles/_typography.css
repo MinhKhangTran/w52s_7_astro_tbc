@@ -1,0 +1,43 @@
+/* typography */
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.h1 {
+  font-size: var(--h1);
+}
+
+.h2 {
+  font-size: var(--h2);
+}
+
+.h3 {
+  font-size: var(--h3);
+}
+.h4 {
+  font-size: var(--h4);
+}
+
+.body {
+  font-size: var(--body);
+}
+
+.body-lg {
+  font-size: var(--body-lg);
+}
+
+.small {
+  font-size: var(--small);
+}
+
+.h1,
+.h2,
+.h3,
+.h4 {
+  line-height: 1.1;
+  font-family: var(--ff-heading);
+}
+.text-center {
+  text-align: center;
+}
