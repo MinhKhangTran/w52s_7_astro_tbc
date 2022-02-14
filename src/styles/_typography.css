@@ -1,3 +1,4 @@
+@import url("./_media.css");
 /* typography */
 
 .uppercase {
@@ -6,6 +7,10 @@
 
 .h1 {
   font-size: var(--h1);
+  line-height: var(--lh-200);
+  @media (--sm) {
+    line-height: var(--lh-300);
+  }
 }
 
 .h2 {
@@ -17,14 +22,22 @@
 }
 .h4 {
   font-size: var(--h4);
+  line-height: var(--lh-300);
+  @media (--sm) {
+    line-height: var(--lh-500);
+  }
+}
+.h5 {
+  font-size: var(--h5);
+  line-height: var(--lh-400);
 }
 
 .body {
   font-size: var(--body);
 }
 
-.body-lg {
-  font-size: var(--body-lg);
+.button-text {
+  font-size: var(--button-text);
 }
 
 .small {
@@ -34,10 +47,30 @@
 .h1,
 .h2,
 .h3,
-.h4 {
-  line-height: 1.1;
+.h4,
+.h5 {
   font-family: var(--ff-heading);
 }
+
+.h2,
+.h3 {
+  line-height: var(--lh-300);
+}
+
 .text-center {
   text-align: center;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+/* lh */
+@each $lh,
+  $index in (--lh-100, --lh-200, --lh-300, --lh-400, --lh-500, --lh-600),
+  (100, 200, 300, 400, 500, 600)
+{
+  .lh-$(index) {
+    line-height: var($(lh));
+  }
 }
