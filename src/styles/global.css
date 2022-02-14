@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600;900&family=Fraunces:wght@700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Rubik:wght@700&display=swap");
 @import url("./_reset.css");
 @import url("./_a11y.css");
 @import url("./_typography.css");
@@ -8,20 +8,41 @@
 
 :root {
   /* font-family */
-  --ff-heading: "Fraunces", serif;
-  --ff-body: "Barlow", sans-serif;
+  --ff-heading: "Rubik", sans-serif;
+  --ff-body: "Karla", sans-serif;
 
   /* colors */
-  --primary: 7 99% 79%;
-  --secondary: 51 100% 49%;
-  --tertiary: 167 40% 24%;
-  --dark-blue: 198 62% 26%;
-  --dark-cyan: 168 35% 35%;
-  --dark: 212 27% 19%;
-  --dark-gray: 213 9% 39%;
-  --blue-gray: 231 8% 47%;
-  --gray-blue: 216 2% 46%;
-  --white: 0 0% 100%;
+  /* Deep Blue */
+  --primary: 248 87% 41%;
+  /* Banana */
+  --secondary-100: 47 100% 50%;
+  --secondary-200: 47 100% 70%;
+  --secondary-300: 47 100% 80%;
+  --secondary-400: 47 100% 90%;
+  /* Lilac */
+  --tertiary-100: 238 100% 90%;
+  --tertiary-200: 238 100% 92%;
+  --tertiary-300: 238 100% 94%;
+  --tertiary-400: 238 100% 96%;
+  /* Sunset */
+  --quaternary-100: 19 100% 81%;
+  --quaternary-200: 19 100% 86%;
+  --quaternary-300: 19 100% 89%;
+  --quaternary-400: 19 100% 95%;
+  /* Lime Green */
+  --quinary-100: 91 100% 73%;
+  --quinary-200: 91 100% 80%;
+  --quinary-300: 91 100% 90%;
+  --quinary-400: 91 100% 95%;
+  /* 50 Shades of Gray */
+  --gray-100: 248 7% 10%;
+  --gray-200: 248 7% 28%;
+  --gray-300: 248 7% 40%;
+  --gray-400: 248 7% 60%;
+  --gray-500: 248 7% 75%;
+  --gray-600: 248 7% 85%;
+  --gray-700: 248 7% 90%;
+  --gray-800: 248 7% 95%;
 
   /* font-sizes */
   --h1: 2.5rem;
