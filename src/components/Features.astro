@@ -1,1 +1,110 @@
-<section id="features" aria-label="features section">features</section>
+---
+const featArray = [
+  {
+    id: 1,
+    titel: "The problem",
+    text: "Plastics account for 80% of the waste in the oceans. The presence of microplastics in the oceans affects marine life and plants, as well as human health. The consequences of our actions are growing, but there’s hope!",
+    img: "/assets/images/The problem.svg",
+    alt: "Plastic trash on the beach",
+  },
+  {
+    id: 2,
+    titel: "Who we are",
+    text: "The Beach Collective is a global group of activists living all over the world. You don’t have to live near a beach to help! There are many ways to get involved, and all it takes is a love for our planet.",
+    img: "/assets/images/feat-2.svg",
+    alt: "Equipment for this project",
+  },
+  {
+    id: 3,
+    titel: "Who we do it for",
+    text: "A beachcomber is someone who cares about our oceans and participates in beach cleanups and scavenger hunts — aka you! A collector who is interested in the origin and history of the objects he encounters.",
+    img: "/assets/images/who we do it for.svg",
+    alt: "Underwater animals",
+  },
+];
+---
+
+<section class="container" id="features" aria-label="features section">
+  {featArray.map((feat) => {
+    const { id, titel, text, img, alt } = feat;
+    return (
+      <article class={`feat_${id}`}>
+        <div class="left-panel">
+          <h2 class="h2 text-gray-100">{titel}</h2>
+          <p class="text text-gray-200">{text}</p>
+          <a href="#" class="text-primary uppercase fw-bold">
+            Learn more
+            <span>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.08929 0.776786L5.70536 0.1875C5.83036 0.0625 5.98214 0 6.16071 0C6.33929 0 6.49107 0.0625 6.61607 0.1875L11.8125 5.38393C11.9375 5.50893 12 5.66071 12 5.83929C12 6.01786 11.9375 6.16964 11.8125 6.29464L6.61607 11.4911C6.49107 11.6161 6.33929 11.6786 6.16071 11.6786C5.98214 11.6786 5.83036 11.6161 5.70536 11.4911L5.08929 10.9018C4.96429 10.7768 4.90179 10.625 4.90179 10.4464C4.91964 10.2679 4.99107 10.1161 5.11607 9.99107L8.33036 6.91071H0.642857C0.464286 6.91071 0.3125 6.84821 0.1875 6.72321C0.0625 6.59821 0 6.44643 0 6.26786V5.41071C0 5.23214 0.0625 5.08036 0.1875 4.95536C0.3125 4.83036 0.464286 4.76786 0.642857 4.76786H8.33036L5.11607 1.6875C4.99107 1.5625 4.91964 1.41071 4.90179 1.23214C4.90179 1.05357 4.96429 0.901786 5.08929 0.776786Z"
+                  fill="#8370F5"
+                ></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+        <div class="right-panel">
+          <img src={img} alt={alt} />
+        </div>
+      </article>
+    );
+  })}
+</section>
+
+<style>
+  @import url("../styles/_media.css");
+  .feat_1,
+  .feat_3 {
+    padding-top: 5.5rem;
+    @media (--md) {
+      padding-top: 7.5rem;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+  .feat_2 {
+    @media (--md) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .feat_2,
+  .feat_3 {
+    padding-top: 4rem;
+    @media (--md) {
+      padding-top: 7.5rem;
+    }
+  }
+  .left-panel,
+  .right-panel {
+    flex: 50%;
+  }
+  .text {
+    padding-block: 1rem;
+    @media (--md) {
+      padding-block: 2rem 1.5rem;
+    }
+  }
+  .left-panel {
+    padding-bottom: 1.5rem;
+  }
+  a {
+    text-decoration: none;
+  }
+  span {
+    padding-left: 0.25rem;
+  }
+  svg {
+    transition: width 0.25s;
+  }
+  a:hover svg {
+    width: 20px;
+  }
+</style>
