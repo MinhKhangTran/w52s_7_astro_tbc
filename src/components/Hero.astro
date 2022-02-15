@@ -4,9 +4,103 @@ import Navigation from "./Navigation.astro";
 
 <section class="bg-primary" id="hero" aria-label="hero section">
   <Navigation />
-  hero
+  <div id="main-content" class="container" aria-label="hero section">
+    <div class="left-panel">
+      <h1 class="h1">Digging for plastic, one beach at a time</h1>
+      <button class="h4 fw-bold text-primary bg-quinary-100"
+        >Get involved</button
+      >
+    </div>
+    <div class="right-panel">
+      <picture class="hero_image">
+        <source
+          media="(min-width: 36em)"
+          srcset={`assets/images/desktop/hero.png`}
+        />
+
+        <img
+          srcset={`assets/images/desktop/hero.png`}
+          sizes="(min-width: 36em)"
+          src={`assets/images/desktop/hero.png`}
+          alt="hero"
+        />
+      </picture>
+    </div>
+  </div>
+  <div class="arrow">
+    <a href="/#feat">
+      <svg
+        width="16"
+        height="25"
+        viewBox="0 0 16 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.29289 24.7071C7.68342 25.0976 8.31658 25.0976 8.70711 24.7071L15.0711 18.3431C15.4616 17.9526 15.4616 17.3195 15.0711 16.9289C14.6805 16.5384 14.0474 16.5384 13.6569 16.9289L8 22.5858L2.34315 16.9289C1.95262 16.5384 1.31946 16.5384 0.928931 16.9289C0.538407 17.3195 0.538407 17.9526 0.928931 18.3431L7.29289 24.7071ZM7 -4.37114e-08L7 24L9 24L9 4.37114e-08L7 -4.37114e-08Z"
+          fill="white"></path>
+      </svg>
+    </a>
+  </div>
 </section>
 
 <style>
+  @import url("../styles/_media.css");
+  section {
+    min-height: calc(100vh);
+    position: relative;
+    background-image: url("/assets/images/mobile/hero_sm.jpg");
+    background-size: cover;
 
+    @media (--md) {
+      min-height: 46.5rem;
+      background-image: url("/assets/images/background.svg");
+      background-size: cover;
+    }
+  }
+  #main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 130px);
+    @media (--md) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+  }
+  .left-panel {
+    h1 {
+      color: white;
+      text-align: center;
+    }
+    button {
+      margin-top: 2.5rem;
+      display: block;
+      width: 100%;
+      padding: 1.5rem;
+      border: none;
+      border-radius: 90px;
+      margin-inline: auto;
+      @media (--md) {
+        margin-top: 3rem;
+        width: 50%;
+      }
+    }
+  }
+  .right-panel {
+    display: none;
+    @media (--md) {
+      display: flex;
+    }
+  }
+  .arrow {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    @media (--md) {
+      display: none;
+    }
+  }
 </style>
