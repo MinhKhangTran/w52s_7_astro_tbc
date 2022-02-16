@@ -1,1 +1,172 @@
-<section id="blog" aria-label="blog section">blog</section>
+---
+const blogArray = [
+  {
+    id: 1,
+    img: "blog-1",
+    titel: "What happens to plastic after we throw it away?",
+    text: "Plastic used to create durable disposable materials are often only in our hands for less than an hour...",
+  },
+  {
+    id: 2,
+    img: "blog-2",
+    titel: "Three things the oceans do for us every single day",
+    text: "The oceans have three very important functions in the life of our planet and survival...",
+  },
+  {
+    id: 3,
+    img: "blog-3",
+    titel:
+      "Microalgae: the tiny plants that create more than half the air we breathe!",
+    text: "These little creatures are miracles. If the oceans are filled with plastic...",
+  },
+];
+---
+
+<section id="blog" class="bg-quaternary-400" aria-label="blog section">
+  <div class="container">
+    <!-- <img class="blub schaufel" src="/assets/images/schaufel.svg" alt="Schaufel"
+    />
+    <img class="blub flasche" src="/assets/images/flasche.svg" alt="flasche" />
+    <img class="blub ellipse" src="/assets/images/Ellipse.svg" alt="Ellipse" /> -->
+    <h2 class="text-center h2 text-gray-100">The Beach Collective Blog</h2>
+    <p class="desc text-center text-gray-200 lh-600">
+      The ocean and its animals are affected: fish, birds, turtles, whales and
+      us, humans too! Here are some common situations that we can spread
+      awareness about!
+    </p>
+    <div class="card_wrapper">
+      {blogArray.map((blog) => {
+        const { img, id, text, titel } = blog;
+        return (
+          <article class="card">
+            <div class="image_wrapper">
+              <picture class="blog_1_image">
+                <source
+                  media="(min-width: 36em)"
+                  srcset={`assets/images/desktop/${img}.jpg`}
+                />
+                <source
+                  media="(max-width: 36em)"
+                  srcset={`assets/images/mobile/${img}.jpg`}
+                />
+                <img
+                  srcset={`assets/images/mobile/${img}.jpg, assets/images/desktop/${img}.jpg`}
+                  sizes="(min-width: 36em), (max-width: 36em)"
+                  src={`assets/images/mobile/${img}.jpg`}
+                  alt={`Blog ${id}`}
+                />
+              </picture>
+            </div>
+            <div class="card_content">
+              <h3 class="fw-bold text-gray-100">{titel}</h3>
+              <p class="text-gray-200 concerpt">{text}</p>
+              <a class="text-primary uppercase" href="#">
+                <span>
+                  <svg
+                    width="27"
+                    height="11"
+                    viewBox="0 0 27 11"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M26.7426 4.41722H25.0426C24.7095 1.92795 22.5771 0 19.998 0C17.9336 0 16.1562 1.23606 15.3561 3.00466C14.8382 2.51278 14.14 2.20875 13.3712 2.20875C12.6024 2.20875 11.9044 2.51278 11.3868 3.00466C10.5867 1.23578 8.80926 0 6.74547 0C4.16574 0 2.03308 1.92795 1.69999 4.41722H0V5.77278H1.69972C2.03308 8.26205 4.16574 10.19 6.7452 10.19C9.55427 10.19 11.8402 7.90435 11.8402 5.095C11.8402 4.25067 12.5268 3.56431 13.3709 3.56431C14.2149 3.56431 14.9024 4.25067 14.9024 5.095C14.9024 7.90435 17.1883 10.19 19.998 10.19C22.5771 10.19 24.7095 8.26205 25.0426 5.77278H26.7426V4.41722ZM6.7452 8.83416C4.68252 8.83416 3.00466 7.15712 3.00466 5.09472C3.00466 3.03232 4.68224 1.35501 6.7452 1.35501C8.80732 1.35501 10.4846 3.03232 10.4846 5.09472C10.4846 7.15712 8.80732 8.83416 6.7452 8.83416ZM19.998 8.83416C17.9358 8.83416 16.258 7.15712 16.258 5.09472C16.258 3.03232 17.9356 1.35501 19.998 1.35501C22.0604 1.35501 23.7379 3.03232 23.7379 5.09472C23.7379 7.15712 22.0601 8.83416 19.998 8.83416Z"
+                      fill="#8370F5"
+                    ></path>
+                  </svg>
+                </span>
+                Read Post
+              </a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  @import url("../styles/_media.css");
+  section {
+    padding-block: 3rem;
+    margin-top: 5.5rem;
+    position: relative;
+    overflow: hidden;
+
+    background-image: url(/assets/images/blog_bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (--md) {
+      padding-block: 7.5rem;
+      margin-top: 7.5rem;
+    }
+  }
+  .desc {
+    max-width: 650px;
+    width: 90%;
+    margin-inline: auto;
+    padding-bottom: 2rem;
+    @media (--md) {
+      padding-bottom: 4.5rem;
+    }
+  }
+  .container {
+    position: relative;
+  }
+
+  .schaufel {
+    top: -100%;
+  }
+  .card_wrapper {
+    @media (--md) {
+      gap: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .card {
+    display: flex;
+    background-color: white;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    gap: 1rem;
+    @media (--md) {
+      display: block;
+      padding: 0rem;
+    }
+  }
+  .card_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 66%;
+    @media (--md) {
+      padding: 2.5rem;
+    }
+  }
+  .concerpt {
+    display: none;
+    @media (--md) {
+      display: block;
+    }
+  }
+  h3 {
+    font-size: 1rem;
+    @media (--md) {
+      font-size: 1.5rem;
+    }
+  }
+  a {
+    text-decoration: none;
+    @media (--md) {
+      margin-top: 5rem;
+    }
+  }
+  span {
+    display: none;
+    @media (--md) {
+      display: inline-block;
+    }
+  }
+</style>
