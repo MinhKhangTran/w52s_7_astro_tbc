@@ -5,6 +5,7 @@
 @import url("./_utilities.css");
 @import url("./_media.css");
 @import url("./_colors.css");
+@import url("./components/_pricing.css");
 
 :root {
   /* font-family */
