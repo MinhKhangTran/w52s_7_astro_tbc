@@ -1,5 +1,13 @@
 @import url("../_media.css");
 
+section {
+  position: relative;
+  padding-top: 4rem;
+  @media (--md) {
+    padding-top: 7.5rem;
+  }
+}
+
 .price_icon {
   background-color: hsl(var(--secondary-100));
   display: flex;
@@ -9,12 +17,12 @@
   border-radius: 90px;
   position: absolute;
   left: 50%;
-  top: -30%;
+  top: -15%;
   transform: translate(-50%, 50%);
   @media (--md) {
     width: 120px;
     height: 120px;
-    top: -40%;
+    top: -25%;
   }
   img {
     width: 26px;
@@ -25,10 +33,11 @@
 }
 .price_wrapper {
   padding-top: 4rem;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(4, 100%);
+  /* 
+  grid-template-columns: repeat(4, 100%); */
   @media (--md) {
+    display: grid;
+    gap: 1rem;
     grid-template-columns: repeat(4, 1fr);
     padding-top: 8.25rem;
   }
@@ -37,6 +46,7 @@
 .price_card {
   background-color: hsl(var(--primary));
   position: relative;
+  padding-bottom: 1rem;
   @media (--md) {
     background-color: white;
     border: 2px solid #e4e4e7;
@@ -64,6 +74,34 @@
     color: hsl(var(--gray-100));
   }
 }
+.wrapper {
+  padding-block: 2rem 1rem;
+  color: white;
+
+  @media (--md) {
+    padding-block: 3.5rem 2.5rem;
+    color: hsl(var(--gray-100));
+  }
+}
+.price_input_wrapper {
+  justify-content: center;
+  align-items: center;
+}
+
+.price_input_dollar {
+  color: white;
+  font-size: 3rem;
+
+  @media (--md) {
+    color: hsl(var(--gray-100));
+  }
+}
+.price_input_text {
+  font-size: 0.875rem;
+}
+.price_input {
+  flex-direction: column;
+}
 .price_desc {
   padding-bottom: 2rem;
   color: white;
@@ -89,4 +127,87 @@
   color: hsl(var(--primary));
   font-weight: bold;
   font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.35s ease-in;
+  @media (--md) {
+    background-color: white;
+    border: 1px solid #e4e4e7;
+    color: hsl(var(--gray-200));
+  }
+  &:hover {
+    background-color: white;
+    color: hsl(var(--gray-200));
+    @media (--md) {
+      color: hsl(var(--primary));
+      background-color: hsl(var(--quinary-100));
+    }
+  }
+}
+
+/* DOTS */
+.dot_wrapper {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  padding-top: 2rem;
+  @media (--md) {
+    display: none;
+  }
+}
+.dot {
+  height: 24px;
+  aspect-ratio: 1;
+  cursor: pointer;
+  border-radius: 12px;
+  background-color: white;
+  border: solid 1px hsl(var(--primary));
+}
+.dot.active {
+  background-color: hsl(var(--primary));
+}
+
+.prev,
+.next {
+  @media (--md) {
+    display: none;
+  }
+}
+@media (max-width: 860px) {
+  article {
+    opacity: 0;
+    display: none;
+  }
+  article.activeSlide {
+    opacity: 1;
+    display: block;
+    transform: translateX(0);
+  }
+  article.lastSlide {
+    transform: translateX(-100%);
+  }
+  article.nextSlide {
+    transform: translateX(100%);
+  }
+  /* Buttons */
+
+  .prev,
+  .next {
+    position: absolute;
+    cursor: pointer;
+    top: 60%;
+    padding: 1rem;
+    text-align: center;
+    display: grid;
+    place-content: center;
+    background-color: white;
+    border: 1px solid hsl(var(--gray-500));
+    border-radius: 3px;
+  }
+
+  .prev {
+    left: -5%;
+  }
+  .next {
+    right: -5%;
+  }
 }
