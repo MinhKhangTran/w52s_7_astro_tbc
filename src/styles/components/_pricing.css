@@ -173,19 +173,19 @@ section {
   }
 }
 @media (max-width: 860px) {
-  article {
+  .price_card {
     opacity: 0;
     display: none;
   }
-  article.activeSlide {
+  .price_card.activeSlide {
     opacity: 1;
     display: block;
     transform: translateX(0);
   }
-  article.lastSlide {
+  .price_card.lastSlide {
     transform: translateX(-100%);
   }
-  article.nextSlide {
+  .price_card.nextSlide {
     transform: translateX(100%);
   }
   /* Buttons */

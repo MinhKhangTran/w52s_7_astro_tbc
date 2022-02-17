@@ -1,1 +1,187 @@
-<section id="facts" aria-label="facts section">facts</section>
+---
+interface IFact {
+  id: number;
+  small: string;
+  image: string;
+  image_small?: string;
+  text: string;
+  btn: string;
+  type: "color" | "picture";
+  background?: string;
+}
+const factArray: IFact[] = [
+  {
+    id: 1,
+    small: "(Not) Fun Fact",
+    image: "/assets/images/lkw.svg",
+    text: "One dump truck full of plastic waste enters our ocean every minute. Non stop!",
+    btn: "Spread the world",
+    type: "color",
+  },
+  {
+    id: 2,
+    small: "Celebrate For A cause",
+    image: "assets/images/desktop/blog-2.jpg",
+    image_small: "assets/images/mobile/blog-2-sm.jpg",
+    text: "Engage your friends to pledge on your birthday.",
+    btn: "get Birthday donations",
+    type: "picture",
+    background: "tertiary-400",
+  },
+  {
+    id: 3,
+    small: "GET LOUD",
+    image: "assets/images/desktop/blog-4.jpg",
+    image_small: "assets/images/mobile/blog-4.jpg",
+    text: "Be heard in the streets and on the internet.",
+    btn: "Shop merch",
+    type: "picture",
+    background: "quaternary-300",
+  },
+  {
+    id: 4,
+    small: "KNOWLEDGE IS POWER",
+    image: "assets/images/desktop/blog-5.jpg",
+    image_small: "assets/images/mobile/blog-5.jpg",
+    text: "Experience how plastic in the ocean affects you.",
+    btn: "Watch videos",
+    type: "picture",
+    background: "tertiary-400",
+  },
+  {
+    id: 5,
+    small: "Find your local crew",
+    image: "assets/images/desktop/blog-6.jpg",
+    image_small: "assets/images/mobile/blog-6.jpg",
+    text: "Find your Beach Collectors local community today.",
+    btn: "Get in touch",
+    type: "picture",
+    background: "secondary-300",
+  },
+  {
+    id: 6,
+    small: "get your hands dirty",
+    image: "/assets/images/equip.svg",
+    text: "We hold beach scavenger hunts across the globe. See our next dates.",
+    btn: "Find the next one!",
+    type: "color",
+  },
+];
+---
+
+<section id="facts" class="container" aria-label="facts section">
+  <h2 class="h2 text-gray-100 text-center">
+    There are so many ways to help our oceans and planet!
+  </h2>
+  <div class="fact_wrapper">
+    {factArray.map((fact) => {
+      if (fact.type === "color") {
+        return (
+          <article class={`color_card card_${fact.id}`}>
+            <small class="small uppercase">{fact.small}</small>
+            <img src={fact.image} alt="" />
+            <p class="fw-bold">{fact.text}</p>
+            <button>{fact.btn}</button>
+          </article>
+        );
+      }
+
+      return (
+        <article class={`pic_card bg-${fact.background} card_${fact.id}`}>
+          <picture class="fact_1_image">
+            <source media="(min-width: 36em)" srcset={fact.image} />
+            <source media="(max-width: 36em)" srcset={fact.image_small} />
+            <img
+              srcset={`${fact.image}, ${fact.image_small}`}
+              sizes="(min-width: 36em), (max-width: 36em)"
+              src={fact.image_small}
+              alt={fact.text}
+            />
+          </picture>
+          <div class="pic_card_content">
+            <small class="small uppercase">{fact.small}</small>
+            <p class="fw-bold">{fact.text}</p>
+            <button class="pic_card_button">{fact.btn}</button>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+</section>
+
+<style>
+  @import url("../styles/_media.css");
+  .fact_wrapper {
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+      "eins eins"
+      "zwei drei"
+      "sechs sechs"
+      "vier fuenf";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 200px);
+    @media (--md) {
+      grid-template-areas:
+        "eins zwei drei"
+        "vier fuenf sechs";
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 650px);
+    }
+  }
+  @each $index, $name in (1, 2, 3, 4, 5, 6),
+    (eins, zwei, drei, vier, fuenf, sechs)
+  {
+    .card_$(index) {
+      grid-area: $(name);
+    }
+  }
+  .pic_card,
+  .color_card {
+    border-radius: 4px;
+  }
+  .pic_card_content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    font-size: 0.875rem;
+    line-height: 130%;
+
+    height: 63%;
+    @media (--md) {
+      height: 59%;
+      padding: 2.5rem;
+    }
+    p {
+      @media (--md) {
+        font-size: 1.5rem;
+        line-height: 140%;
+        margin-block: auto;
+      }
+    }
+    button {
+      margin-top: auto;
+      color: #270ec5;
+      text-transform: uppercase;
+      border: none;
+      background-color: transparent;
+      font-weight: bold;
+      cursor: pointer;
+      @media (--md) {
+        color: hsl(var(--gray-100));
+        padding-block: 1.25rem;
+        padding-inline: 2.5rem;
+        border: solid 1px #ffffff;
+        border-radius: 90px;
+      }
+    }
+  }
+
+  small {
+    display: none;
+    @media (--md) {
+      display: block;
+    }
+  }
+</style>
