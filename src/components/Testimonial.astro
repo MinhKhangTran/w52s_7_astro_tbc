@@ -1,1 +1,42 @@
-<section id="testimonial" aria-label="testimonial section">testimonial</section>
+<section id="testimonial" class="container" aria-label="testimonial section">
+  <h2 class="h2 text-gray-100 text-center">Our amazing partners</h2>
+  <div class="testi_wrapper">
+    <img src="/assets/images/wwf.svg" alt="" />
+    <img src="/assets/images/water.svg" alt="" />
+    <img src="/assets/images/snapchat.svg" alt="" />
+    <img src="/assets/images/patagonia.svg" alt="" />
+    <img src="/assets/images/superhi.svg" alt="" />
+    <img src="/assets/images/discovery.svg" alt="" />
+    <img src="/assets/images/natgeo.svg" alt="" />
+  </div>
+</section>
+
+<style>
+  @import url("../styles/_media.css");
+  section {
+    padding-top: 4rem;
+    @media (--md) {
+      padding-top: 7.5rem;
+    }
+  }
+  .testi_wrapper {
+    padding-top: 2.5rem;
+    display: flex;
+    column-gap: 1rem;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media (--md) {
+      padding-top: 5rem;
+      column-gap: 2rem;
+      row-gap: 4.5rem;
+    }
+    img {
+      flex-grow: 1;
+      height: 70px;
+      @media (--md) {
+        height: 100px;
+      }
+    }
+  }
+</style>
