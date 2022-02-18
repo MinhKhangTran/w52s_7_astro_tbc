@@ -14,6 +14,7 @@ const factArray: IFact[] = [
     id: 1,
     small: "(Not) Fun Fact",
     image: "/assets/images/lkw.svg",
+    image_small: "/assets/images/lkw_sm.svg",
     text: "One dump truck full of plastic waste enters our ocean every minute. Non stop!",
     btn: "Spread the world",
     type: "color",
@@ -62,6 +63,7 @@ const factArray: IFact[] = [
     id: 6,
     small: "get your hands dirty",
     image: "/assets/images/equip.svg",
+    image_small: "/assets/images/equip_sm.svg",
     text: "We hold beach scavenger hunts across the globe. See our next dates.",
     btn: "Find the next one!",
     type: "color",
@@ -79,8 +81,18 @@ const factArray: IFact[] = [
         return (
           <article class={`color_card card_${fact.id}`}>
             <small class="small uppercase">{fact.small}</small>
-            <img src={fact.image} alt="" />
-            <p class="fw-bold">{fact.text}</p>
+            <picture class="fact_col_image">
+              <source media="(min-width: 36em)" srcset={fact.image} />
+              <source media="(max-width: 36em)" srcset={fact.image_small} />
+              <img
+                srcset={`${fact.image}, ${fact.image_small}`}
+                sizes="(min-width: 36em), (max-width: 36em)"
+                src={fact.image_small}
+                alt={fact.text}
+              />
+            </picture>
+
+            <h3 class="fw-bold">{fact.text}</h3>
             <button>{fact.btn}</button>
           </article>
         );
@@ -88,7 +100,7 @@ const factArray: IFact[] = [
 
       return (
         <article class={`pic_card bg-${fact.background} card_${fact.id}`}>
-          <picture class="fact_1_image">
+          <picture class="fact_pic_image">
             <source media="(min-width: 36em)" srcset={fact.image} />
             <source media="(max-width: 36em)" srcset={fact.image_small} />
             <img
@@ -100,7 +112,7 @@ const factArray: IFact[] = [
           </picture>
           <div class="pic_card_content">
             <small class="small uppercase">{fact.small}</small>
-            <p class="fw-bold">{fact.text}</p>
+            <h3 class="fw-bold">{fact.text}</h3>
             <button class="pic_card_button">{fact.btn}</button>
           </div>
         </article>
@@ -111,6 +123,21 @@ const factArray: IFact[] = [
 
 <style>
   @import url("../styles/_media.css");
+  section {
+    padding-top: 4rem;
+    @media (--md) {
+      padding-top: 7.5rem;
+    }
+  }
+  h2 {
+    padding-bottom: 2.5rem;
+    width: 90%;
+    max-width: 800px;
+    margin-inline: auto;
+    @media (--md) {
+      padding-bottom: 3.75rem;
+    }
+  }
   .fact_wrapper {
     display: grid;
     gap: 1rem;
@@ -120,13 +147,12 @@ const factArray: IFact[] = [
       "sechs sechs"
       "vier fuenf";
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 200px);
+    grid-auto-rows: 1fr;
     @media (--md) {
       grid-template-areas:
         "eins zwei drei"
         "vier fuenf sechs";
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 650px);
     }
   }
   @each $index, $name in (1, 2, 3, 4, 5, 6),
@@ -144,20 +170,22 @@ const factArray: IFact[] = [
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 1rem;
     font-size: 0.875rem;
     line-height: 130%;
 
-    height: 63%;
     @media (--md) {
-      height: 59%;
       padding: 2.5rem;
     }
-    p {
+    h3 {
+      font-size: 0.875rem;
+      padding-block: 1.5rem;
       @media (--md) {
         font-size: 1.5rem;
         line-height: 140%;
         margin-block: auto;
+        padding-block: 2rem;
       }
     }
     button {
@@ -174,6 +202,62 @@ const factArray: IFact[] = [
         padding-inline: 2.5rem;
         border: solid 1px #ffffff;
         border-radius: 90px;
+        transition: all 0.35s ease-in;
+        &:hover {
+          background-color: white;
+        }
+      }
+    }
+  }
+  .color_card {
+    background-color: hsl(var(--quinary-300));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    @media (--md) {
+      background-color: hsl(var(--primary));
+      color: white;
+    }
+    small {
+      @media (--md) {
+        margin-bottom: auto;
+      }
+    }
+
+    h3 {
+      font-size: 1rem;
+      padding-block: 1rem 1.5rem;
+      @media (--md) {
+        font-size: 2rem;
+      }
+    }
+    img {
+      width: 32px;
+      @media (--md) {
+        width: 72px;
+      }
+    }
+    button {
+      margin-top: auto;
+      color: #270ec5;
+      text-transform: uppercase;
+      border: none;
+      background-color: transparent;
+      font-weight: bold;
+      cursor: pointer;
+      @media (--md) {
+        color: hsl(var(--primary));
+        padding-block: 1.25rem;
+        padding-inline: 2.5rem;
+        border-radius: 90px;
+        background-color: hsl(var(--quinary-100));
+        transition: all 0.35s ease-in;
+        &:hover {
+          background-color: hsl(var(--quinary-300));
+        }
       }
     }
   }

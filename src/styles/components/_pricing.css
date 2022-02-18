@@ -1,6 +1,6 @@
 @import url("../_media.css");
 
-section {
+section#pricing {
   position: relative;
   padding-top: 4rem;
   @media (--md) {
