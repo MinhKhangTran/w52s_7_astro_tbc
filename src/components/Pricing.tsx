@@ -82,7 +82,10 @@ const Pricing = () => {
                   <div className="d-flex price_input_wrapper">
                     <span className="price_input_dollar">$</span>
                     <div className="price_input d-flex">
-                      <input type="number" />
+                      <label htmlFor="amount" className="sr-only">
+                        Amount
+                      </label>
+                      <input type="number" id="amount" />
                       {/* <span>Enter amount</span> */}
                     </div>
                   </div>
