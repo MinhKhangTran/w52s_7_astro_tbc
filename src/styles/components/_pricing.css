@@ -156,7 +156,8 @@ section#pricing {
 }
 .dot {
   height: 24px;
-  aspect-ratio: 1;
+  /* aspect-ratio: 1; */
+  width: 24px;
   cursor: pointer;
   border-radius: 12px;
   background-color: white;

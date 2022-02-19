@@ -13,24 +13,7 @@ const navArray = [
   <nav class="container">
     <div class="nav-header">
       <a href="/">
-        <picture class="feat_image">
-          <source
-            media="(min-width: 36em)"
-            srcset={`assets/images/logo_sm_alt.svg`}
-            width="150"
-          />
-          <source
-            media="(max-width: 36em)"
-            srcset={`assets/images/logo_sm_alt.svg`}
-            width="115"
-          />
-          <img
-            srcset={`assets/images/logo_sm_alt.svg, assets/images/logo_sm_alt.svg`}
-            sizes="(min-width: 36em), (max-width: 36em)"
-            src={`assets/images/logo_sm_alt.svg`}
-            alt="home"
-          />
-        </picture>
+        <img width="65" src="assets/images/logo_sm.svg" alt="home" />
       </a>
 
       <section class="navbar-mobile-icon">
@@ -58,31 +41,34 @@ const navArray = [
         </button>
       </section>
     </div>
-    <ul class="nav-bar" tabindex="-1">
-      {navArray.map((nav, index) => {
-        return (
-          <li>
-            <a href={nav.href} class={`uppercase nav-${index}`}>
-              {nav.text}
-            </a>
-          </li>
-        );
-      })}
-    </ul>
-    <ul class="nav-bar_md" tabindex="-1">
-      {navArray.slice(-2).map((nav) => {
-        return (
-          <li>
-            <a
-              href={nav.href}
-              class={`${nav.btn ? "cta-btn uppercase" : "uppercase"}`}
-            >
-              {nav.text}
-            </a>
-          </li>
-        );
-      })}
-    </ul>
+
+    <article>
+      <ul class="nav-bar" tabindex="-1">
+        {navArray.map((nav, index) => {
+          return (
+            <li>
+              <a href={nav.href} class={`uppercase nav-${index}`}>
+                {nav.text}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      <ul class="nav-bar_md" tabindex="-1">
+        {navArray.slice(-2).map((nav) => {
+          return (
+            <li>
+              <a
+                href={nav.href}
+                class={`${nav.btn ? "cta-btn uppercase" : "uppercase"}`}
+              >
+                {nav.text}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </article>
   </nav>
 </header>
 
@@ -117,16 +103,15 @@ const navArray = [
 <style>
   @import url("../styles/_media.css");
   header {
-    padding-top: 1.5rem;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
   .nav-header {
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
+    padding-right: 3rem;
     @media (--md) {
-      position: absolute;
-      transform: translateX(-50%);
-      left: 50%;
     }
   }
 
@@ -163,7 +148,7 @@ const navArray = [
       justify-content: space-between;
     }
     a {
-      color: white;
+      color: hsl(var(--gray-100));
     }
   }
   .navbar-mobile-icon {
@@ -175,7 +160,7 @@ const navArray = [
   .navbar-mobile-icon input[type="button"] {
     border: 0;
     background: transparent;
-    color: white;
+    color: hsl(var(--primary));
     cursor: pointer;
     display: inline-block;
     padding: 1rem 1.5em;
@@ -253,14 +238,21 @@ const navArray = [
   a {
     text-decoration: none;
   }
+  article {
+    display: flex;
+    justify-content: space-between;
+
+    flex: 90%;
+  }
   .cta-btn {
     padding-inline: 2rem;
     padding-block: 0.625rem;
     border-radius: 50px;
     transition: all 0.2s ease-in;
     border: 2px solid hsl(0 0% 100% / 0.3);
+    background-color: hsl(var(--quinary-400));
     &:hover {
-      background-color: hsl(0 0% 100%);
+      background-color: hsl(var(--quinary-100));
       color: var(--gray-100);
     }
   }

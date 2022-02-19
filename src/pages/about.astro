@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import Features from "../components/Features.astro";
+import Blog from "../components/Blog.astro";
+import Quote from "../components/Quote.astro";
+import Pricing from "../components/Pricing.tsx";
+import Facts from "../components/Facts.astro";
+import Testimonial from "../components/Testimonial.astro";
+import Contact from "../components/Contact.astro";
+import Gallery from "../components/Gallery.astro";
+
+let title = "Astro Portfolio W52s #7";
+let description = "Astro Portfolio W52s #7";
+const permalink = Astro.site.href;
+let canonicalURL = Astro.request.canonicalURL;
+---
+
+<Layout {title} {description} {permalink} current="about" {canonicalURL}>
+  <main id="main-content">
+    <Features />
+    <Blog />
+    <Quote />
+    <Pricing client:visible />
+    <Facts />
+    <Testimonial />
+    <Contact />
+    <Gallery />
+  </main>
+</Layout>
