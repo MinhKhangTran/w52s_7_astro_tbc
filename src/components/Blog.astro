@@ -24,10 +24,10 @@ const blogArray = [
 
 <section id="blog" class="bg-quaternary-400" aria-label="blog section">
   <div class="container">
-    <!-- <img class="blub schaufel" src="/assets/images/schaufel.svg" alt="Schaufel"
+    <!-- <img class="blub schaufel" src="//assets/images/schaufel.svg" alt="Schaufel"
     />
-    <img class="blub flasche" src="/assets/images/flasche.svg" alt="flasche" />
-    <img class="blub ellipse" src="/assets/images/Ellipse.svg" alt="Ellipse" /> -->
+    <img class="blub flasche" src="//assets/images/flasche.svg" alt="flasche" />
+    <img class="blub ellipse" src="//assets/images/Ellipse.svg" alt="Ellipse" /> -->
     <h2 class="text-center h2 text-gray-100">The Beach Collective Blog</h2>
     <p class="desc text-center text-gray-200 lh-600">
       The ocean and its animals are affected: fish, birds, turtles, whales and
@@ -43,16 +43,16 @@ const blogArray = [
               <picture class="blog_1_image">
                 <source
                   media="(min-width: 36em)"
-                  srcset={`assets/images/desktop/${img}.jpg`}
+                  srcset={`/assets/images/desktop/${img}.jpg`}
                 />
                 <source
                   media="(max-width: 36em)"
-                  srcset={`assets/images/mobile/${img}.jpg`}
+                  srcset={`/assets/images/mobile/${img}.jpg`}
                 />
                 <img
-                  srcset={`assets/images/mobile/${img}.jpg, assets/images/desktop/${img}.jpg`}
+                  srcset={`/assets/images/mobile/${img}.jpg, /assets/images/desktop/${img}.jpg`}
                   sizes="(min-width: 36em), (max-width: 36em)"
-                  src={`assets/images/mobile/${img}.jpg`}
+                  src={`/assets/images/mobile/${img}.jpg`}
                   alt={`Blog ${id}`}
                 />
               </picture>

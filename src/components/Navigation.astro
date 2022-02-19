@@ -1,9 +1,9 @@
 ---
 const navArray = [
-  { id: 1, text: "About", href: "about", btn: false },
-  { id: 2, text: "Blog", href: "blog", btn: false },
-  { id: 3, text: "Get Involved", href: "involve", btn: false },
-  { id: 4, text: "Donate", href: "donate", btn: true },
+  { id: 1, text: "About", href: "/about", btn: false },
+  { id: 2, text: "Blog", href: "/blog", btn: false },
+  { id: 3, text: "Get Involved", href: "/involve", btn: false },
+  { id: 4, text: "Donate", href: "/donate", btn: true },
   { id: 5, text: "Login", href: "#", btn: false },
 ];
 ---
@@ -16,18 +16,18 @@ const navArray = [
         <picture class="feat_image">
           <source
             media="(min-width: 36em)"
-            srcset={`assets/images/logo_sm_alt.svg`}
+            srcset={`/assets/images/logo_sm_alt.svg`}
             width="150"
           />
           <source
             media="(max-width: 36em)"
-            srcset={`assets/images/logo_sm_alt.svg`}
+            srcset={`/assets/images/logo_sm_alt.svg`}
             width="115"
           />
           <img
-            srcset={`assets/images/logo_sm_alt.svg, assets/images/logo_sm_alt.svg`}
+            srcset={`/assets/images/logo_sm_alt.svg, /assets/images/logo_sm_alt.svg`}
             sizes="(min-width: 36em), (max-width: 36em)"
-            src={`assets/images/logo_sm_alt.svg`}
+            src={`/assets/images/logo_sm_alt.svg`}
             alt="home"
           />
         </picture>
